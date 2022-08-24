@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ownIdeasListFragment">
+
+    <fragment
+        android:id="@+id/ownIdeasListFragment"
+        android:name="com.example.bubbleidea.ui.own_ideas_list.OwnIdeasListFragment"
+        android:label="fragment_own_ideas_list"
+        tools:layout="@layout/fragment_own_ideas_list" >
+        <action
+            android:id="@+id/action_ownIdeasListFragment_to_IdeaDetailsFragment"
+            app:destination="@id/IdeaDetailsFragment" />
+        <action
+            android:id="@+id/action_ownIdeasListFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/IdeaDetailsFragment"
+        android:name="com.example.bubbleidea.ui.idea_details.IdeaDetailsFragment"
+        android:label="fragment_add_own_idea"
+        tools:layout="@layout/fragment_idea_details" >
+        <action
+            android:id="@+id/action_addOwnIdeaFragment_to_ownIdeasListFragment2"
+            app:destination="@id/ownIdeasListFragment" />
+        <argument
+            android:name="ownIdeaId"
+            app:argType="long" />
+        <argument
+            android:name="ownIdea"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_IdeaDetailsFragment_to_ideaGeneratorFragment"
+            app:destination="@id/ideaGeneratorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.bubbleidea.ui.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_libraryFragment_to_ownIdeasListFragment"
+            app:destination="@id/ownIdeasListFragment" />
+        <action
+            android:id="@+id/action_libraryFragment_to_associationsFragment"
+            app:destination="@id/associationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/associationsFragment"
+        android:name="com.example.bubbleidea.ui.associations.AssociationsFragment"
+        android:label="fragment_associations"
+        tools:layout="@layout/fragment_associations" >
+        <action
+            android:id="@+id/action_associationsFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+        <argument
+            android:name="activateWordId"
+            app:argType="long" />
+        <argument
+            android:name="activateWord"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideaGeneratorFragment"
+        android:name="com.example.bubbleidea.ui.idea_generator.IdeaGeneratorFragment"
+        android:label="fragment_idea_generator"
+        tools:layout="@layout/fragment_idea_generator" >
+        <action
+            android:id="@+id/action_ideaGeneratorFragment_to_IdeaDetailsFragment"
+            app:destination="@id/IdeaDetailsFragment" />
+        <argument
+            android:name="idea"
+            app:argType="string" />
+        <argument
+            android:name="ideaId"
+            app:argType="long" />
+    </fragment>
+</navigation>
