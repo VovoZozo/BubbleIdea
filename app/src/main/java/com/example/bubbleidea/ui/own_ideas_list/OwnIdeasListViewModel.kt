@@ -73,7 +73,7 @@ class OwnIdeasListViewModel(private val bubbleIdeaRepository: BubbleIdeaReposito
 
                     }
                 },
-                    listForSearch, "ru", "response")
+                    listForSearch, QUERY_LANG_RU, QUERY_TYPE_RESPONSE)
             } else {
                 _addNewOwnIdea.postValue(Event(newIdea))
                 _addOnNavigation.postValue(ResultState.Success(newIdea))

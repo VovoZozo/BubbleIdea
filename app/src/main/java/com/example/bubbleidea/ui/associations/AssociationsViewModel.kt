@@ -9,10 +9,6 @@ class AssociationsViewModel (
 
     fun getAssociations(currentActivateWordId: Long) =
         bubbleIdeaRepository.getAllAssociationsByActivateWord(currentActivateWordId)
-
-    companion object {
-        private const val DEFAULT_ID = 0L
-    }
 }
 
 

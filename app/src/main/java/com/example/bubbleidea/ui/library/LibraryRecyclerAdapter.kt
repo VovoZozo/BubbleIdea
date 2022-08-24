@@ -30,8 +30,8 @@ class LibraryRecyclerAdapter (
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                if (adapterPosition != RecyclerView.NO_POSITION) {
-                    val activateWord = getItem(adapterPosition)
+                if (absoluteAdapterPosition != RecyclerView.NO_POSITION) {
+                    val activateWord = getItem(absoluteAdapterPosition)
                     clickListener.onActivateWordClicked(activateWord)
                 }
             }

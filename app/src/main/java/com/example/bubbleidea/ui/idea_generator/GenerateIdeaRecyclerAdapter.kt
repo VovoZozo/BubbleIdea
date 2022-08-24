@@ -29,12 +29,6 @@ class GenerateIdeaRecyclerAdapter (
     inner class MyViewHolder(private val binding: GenerateIdeaCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
-//            binding.root.setOnClickListener {
-//                if (adapterPosition != RecyclerView.NO_POSITION) {
-//                    val associativeIdea = getItem(adapterPosition)
-//                    clickListener.onSaveIdeaClicked(associativeIdea)
-//                }
-//            }
             binding.saveButton.setOnClickListener {
                 if (absoluteAdapterPosition != RecyclerView.NO_POSITION) {
                     val associativeIdea = getItem(absoluteAdapterPosition)

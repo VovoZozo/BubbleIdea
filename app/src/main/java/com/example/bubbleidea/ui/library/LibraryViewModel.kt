@@ -75,7 +75,7 @@ class LibraryViewModel  (
             override fun onFailure(call: Call<WordAssociationsApiResponse>, t: Throwable) {
             }
         },
-            listOf(activateWord.activateWord), "ru", "response")
+            listOf(activateWord.activateWord), QUERY_LANG_RU, QUERY_TYPE_RESPONSE)
     }
 
     fun setDataToAssociationTable(associations : List<ResponseWord>, activateWord: ActivateWord) {

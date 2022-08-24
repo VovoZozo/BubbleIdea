@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bubbleidea.helpers.Event
-import com.example.bubbleidea.helpers.ResultState
 import com.example.bubbleidea.database.entites.ActivateWord
 import com.example.bubbleidea.database.entites.OwnIdea
+import com.example.bubbleidea.helpers.*
 import com.example.bubbleidea.network.ResponseWord
 import com.example.bubbleidea.network.WordAssociationsApiResponse
 import com.example.bubbleidea.repository.AssociationMappers
@@ -67,7 +66,7 @@ class IdeaDetailsViewModel(
 
                             }
                         },
-                        partOfListForSearch, "ru", "response"
+                        partOfListForSearch, QUERY_LANG_RU, QUERY_TYPE_RESPONSE
                     )
                 }
             } else {
@@ -108,6 +107,6 @@ class IdeaDetailsViewModel(
     }
 
     companion object {
-        private val DEFAULT_IDEA = OwnIdea(0L, "")
+        private val DEFAULT_IDEA = OwnIdea(DEFAULT_ID, EMPTY_STRING)
     }
 }

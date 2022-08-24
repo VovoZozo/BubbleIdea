@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.bubbleidea.database.entites.Association
 import com.example.bubbleidea.database.entites.AssociativeIdea
 import com.example.bubbleidea.database.entites.OwnIdea
+import com.example.bubbleidea.helpers.*
 import com.example.bubbleidea.repository.AssociationMappers
 import com.example.bubbleidea.repository.BubbleIdeaRepository
 import kotlinx.coroutines.Dispatchers
@@ -41,9 +42,9 @@ class IdeaGeneratorViewModel(
                 associations.add(currentAssociations)
             }
             val ideas = mutableListOf<AssociativeIdea>()
-            repeat(50) {
+            repeat(GENERATE_REPEAT) {
                 val associativeIdeaText = mutableListOf<String>()
-                var count = 0
+                var count = ZERO_FOR_COUNTS
                 associations.forEach {
                     if (it.isNotEmpty()) {
                         val randomIndex = Random.nextInt(it.size)
@@ -54,15 +55,15 @@ class IdeaGeneratorViewModel(
                     }
                     count++
                 }
-                count = 0
+                count = ZERO_FOR_COUNTS
                 val newIdeaText = associativeIdeaText.joinToString(" ").lowercase()
-                ideas.add(AssociativeIdea(0L, newIdeaText, currentIdea.ownIdeaId))
+                ideas.add(AssociativeIdea(DEFAULT_ID, newIdeaText, currentIdea.ownIdeaId))
             }
             _associativeIdes.postValue(ideas)
         }
     }
 
     companion object {
-        private val DEFAULT_IDEA = OwnIdea(0L, "")
+        private val DEFAULT_IDEA = OwnIdea(DEFAULT_ID, EMPTY_STRING)
     }
 }

@@ -20,6 +20,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.bubbleidea.*
 import com.example.bubbleidea.database.entites.ActivateWord
 import com.example.bubbleidea.databinding.FragmentLibraryBinding
+import com.example.bubbleidea.helpers.INTERNET_EXCEPTION_SNACKBAR_MESSAGE
 import com.example.bubbleidea.helpers.ResultState
 import com.example.bubbleidea.helpers.hideKeyboardFrom
 import com.example.bubbleidea.helpers.isInternetAvailable
@@ -91,7 +92,7 @@ class LibraryFragment : Fragment(R.layout.fragment_library) {
                 } else {
                     Snackbar.make(
                         binding.root,
-                        "Please check your internet connection",
+                        INTERNET_EXCEPTION_SNACKBAR_MESSAGE,
                         Snackbar.LENGTH_SHORT
                     ).show()
                 }

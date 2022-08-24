@@ -50,7 +50,7 @@
             android:layout_gravity="end|bottom"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:contentDescription="add_new_idea"
+            android:contentDescription="@string/add_new_idea"
             app:srcCompat="@drawable/ic_add"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

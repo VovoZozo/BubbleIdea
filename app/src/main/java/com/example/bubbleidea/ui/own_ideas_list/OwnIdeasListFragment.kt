@@ -22,6 +22,7 @@ import com.example.bubbleidea.R
 import com.example.bubbleidea.helpers.ResultState
 import com.example.bubbleidea.database.entites.OwnIdea
 import com.example.bubbleidea.databinding.FragmentOwnIdeasListBinding
+import com.example.bubbleidea.helpers.EMPTY_STRING
 import com.example.bubbleidea.helpers.hideKeyboardFrom
 import javax.inject.Inject
 
@@ -115,8 +116,8 @@ class OwnIdeasListFragment : Fragment(R.layout.fragment_own_ideas_list) {
 
         viewModel.addNewOwnIdea.observe(viewLifecycleOwner) { ownIdea ->
             ownIdea.getContentIfNotHandled()?.let {
-                binding.searchEditText.setText("")
-                viewModel.editedIdea = ""
+                binding.searchEditText.setText(EMPTY_STRING)
+                viewModel.editedIdea = EMPTY_STRING
                     findNavController().navigate(
                     OwnIdeasListFragmentDirections.actionOwnIdeasListFragmentToIdeaDetailsFragment(
                         it.ownIdeaId,

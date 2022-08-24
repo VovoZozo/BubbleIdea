@@ -34,12 +34,16 @@ class AssociationMappers {
     }
     fun ideaToListString(ownIdea: OwnIdea): List<String> {
         val str = ownIdea.ownIdea
-        val regex = Regex("[^А-Яа-я0-9]")
-        val del = " "
-        val resultStr = regex.replace(str, " ")
-        val filteredStr = resultStr.replace("\\s+".toRegex(), " ")
-        return filteredStr.split(del).filter {
+        val regex = Regex(REGEX_PATTERN)
+        val resultStr = regex.replace(str, DELIMITTER)
+        val filteredStr = resultStr.replace("\\s+".toRegex(), DELIMITTER)
+        return filteredStr.split(DELIMITTER).filter {
             it.isNotBlank()
         }
+    }
+
+    companion object {
+        private const val REGEX_PATTERN = "[^А-Яа-я0-9]"
+        private const val DELIMITTER = " "
     }
 }

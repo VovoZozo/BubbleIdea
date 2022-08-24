@@ -30,8 +30,8 @@ class OwnIdeasRecyclerAdapter(
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                if (adapterPosition != RecyclerView.NO_POSITION) {
-                    val ownIdea = getItem(adapterPosition)
+                if (absoluteAdapterPosition != RecyclerView.NO_POSITION) {
+                    val ownIdea = getItem(absoluteAdapterPosition)
                     clickListener.onOwnIdeaClicked(ownIdea)
                 }
             }
